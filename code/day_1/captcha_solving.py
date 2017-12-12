@@ -8,7 +8,7 @@ def varify(integer):
             if i == integer[index + 1]:
                 summation += i
         except IndexError:
-            if (index + 1 == len(integer)) and (integer[-1] == integer[0]):
+            if integer[-1] == integer[0]:
                 summation += i
 
     return summation
