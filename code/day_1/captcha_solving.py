@@ -1,24 +1,26 @@
+
 def varify(integer):
     integer = list(map(int, str(integer)))
     print(integer)
     summation = 0
+    length = len(integer)
     for index, i in enumerate(integer):
 
-        try:
-            if i == integer[index + 1]:
+        if (index+1 == length):
+             if integer[-1] == integer[0]:
                 summation += i
-        except IndexError:
-            if integer[-1] == integer[0]:
+ 
+        elif i == integer[index + 1]:
                 summation += i
-
+                
     return summation
 
 
-# print(varify(1122))
-# print(varify(1111))
-# print(varify(1234))
-# print(varify(91212129))
-# print(varify(81112778))
+print(varify(1122))
+print(varify(1111))
+print(varify(1234))
+print(varify(91212129))
+print(varify(81112778))
 
 
 def varify_other(integer):
@@ -40,8 +42,8 @@ def varify_other(integer):
     return summation
 
 
-print(varify_other(1212))
-print(varify_other(1221))
-print(varify_other(123425))
-print(varify_other(123123))
-print(varify_other(12131415))
+#print(varify_other(1212))
+#print(varify_other(1221))
+#print(varify_other(123425))
+#print(varify_other(123123))
+#print(varify_other(12131415))
