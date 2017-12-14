@@ -25,7 +25,7 @@ def varify(integer):
 
 def varify_other(integer):
     integer = list(map(int, str(integer)))
-    print(integer)
+    #print(integer)
     summation = 0
     length = len(integer)
     len_half = int(length/2)
