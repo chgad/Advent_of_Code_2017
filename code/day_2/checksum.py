@@ -16,12 +16,27 @@ def difference(alist):
 
     return maximum - minimum
 
+def divisible(alist):
+
+    for i in alist:
+        for j in alist:
+            res = j/i
+            if int(res) == res and res != 1:
+                return int(res)
+
 def checksum(matrix):
     summation = 0
     for r in matrix:
         # summation += r[-1]-r[0]
         summation += difference(r)
     return summation
+
+def checksum_2(matrix):
+    summation = 0
+    for r in matrix:
+        summation += divisible(r)
+    return summation
+
 
 valid_test ="""414	382	1515	319	83	1327	116	391	101	749	1388	1046	1427	105	1341	1590
 960	930	192	147	932	621	1139	198	865	820	597	165	232	417	19	183
@@ -40,5 +55,7 @@ valid_test ="""414	382	1515	319	83	1327	116	391	101	749	1388	1046	1427	105	1341	
 146	1116	153	815	2212	2070	599	3018	2640	47	125	2292	165	2348	2694	184
 1704	2194	1753	146	2063	1668	1280	615	163	190	2269	1856	150	158	2250	2459"""
 
-print(checksum(perform_string_to_list(valid_test)))
+# print(checksum(perform_string_to_list(valid_test)))
+
+# print(checksum_2(perform_string_to_list(valid_test)))
 
