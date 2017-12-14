@@ -1,15 +1,26 @@
 
 def perform_string_to_list(string):
     rows = string.split("\n")
-    rows= [ sorted(list(map(int,r.split()))) for r in rows]
-    
+    rows= [ list(map(int,r.split())) for r in rows]
+   # rows= [ sorted(list(map(int,r.split()))) for r in rows]
     return rows
+
+def difference(alist):
+    minimum = alist[0]
+    maximum = alist[0]
+    for entry in alist:
+        if entry < minimum:
+            minimum = entry
+        if entry > maximum:
+            maximum = entry
+
+    return maximum - minimum
 
 def checksum(matrix):
     summation = 0
     for r in matrix:
-        summation += r[-1]-r[0]
-
+        # summation += r[-1]-r[0]
+        summation += difference(r)
     return summation
 
 valid_test ="""414	382	1515	319	83	1327	116	391	101	749	1388	1046	1427	105	1341	1590
