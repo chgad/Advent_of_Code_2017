@@ -14,14 +14,47 @@ def validate_passphrase(string):
                 # passphrase is valid
                 is_valid = False
                 break
+            # added for part 2
+            # we now know that there is no explicit dulicate so we can easily get the strings index
+            new_list = list(strings_in_row)
+            new_list.pop(new_list.index(string))
+            for another_string in new_list:
+                
+                letter_cnt = 0
+                if len(string) == len(another_string):
+                    
+                    for letter in string :
+                       
+                        if (letter in another_string and string.count(letter) == another_string.count(letter)):
+                            letter_cnt+=1
+                        
+    
+                if letter_cnt == len(string):
+                    is_valid = False
+                    break
+            if not is_valid:
+                break
+            # end part 2
         if is_valid:
             counter += 1
 
     return counter
 
+print("Part One\n")
 print(validate_passphrase("aa bb cc dd ee"))    # should print 1
 print(validate_passphrase("aa bb cc dd aa"))    # should print 0
 print(validate_passphrase("aa bb cc dd aaa"))    # should print 1
+print("Part Two\n")
+print(validate_passphrase("abcde fghij"),"should print 1")
+print(validate_passphrase("abcde fghij ecdab"),"should print 0")
+print(validate_passphrase("a ab abc abd abf abj"), "should print 1")
+print(validate_passphrase("iiii oiii ooii oooi oooo"), "should print 1")
+print(validate_passphrase("oiii ioii iioi iiio"), "should print 0")
+print(validate_passphrase("anna nana"), "should print 0")
+print(validate_passphrase("a ab aba bab aab"), "should print 0")
+print(validate_passphrase("a ab aba bab aabx"), "should print 1")
+print(validate_passphrase("npaoy uivpxwd oynpa rcdk uixpvdw"), "should print 0")
+
 
 puzzel_input = """oaoe rxeq vssdqtu xrk cjv yaoqp loo
 mveua dogbam szydvri hyzk lbega abzqw xwjn wniug kwbre
