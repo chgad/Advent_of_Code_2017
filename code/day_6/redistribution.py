@@ -26,7 +26,8 @@ def redistribution(string):
             index += 1
             maximum -= 1
         cycles += 1
-    return cycles
+    first_apperance = encountered_config.index(banks)
+    return cycles, cycles - first_apperance # second return value is part 2
 
 test = "0  2  7  0"
 # print(redistribution(test), "should print 5") to use this change Line 23 to 4 instead of 16
