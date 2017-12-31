@@ -5,18 +5,14 @@ def count_steps(string):
     way = list(map(int,string.split("\n")))
     way_len = len(way)
     current_index = 0
-    new_index = 0
     current_steps = 0
     at_end = False
-    steps_to_walk = 0
     # now we start
     while not at_end:
-        steps_to_walk = way[current_index]
-        new_index += steps_to_walk
         way[current_index] += 1
-        current_index = new_index
-        current_steps +=1
-        if new_index < 0 or new_index >= way_len:
+        current_index += way[current_index] -1
+        current_steps += 1
+        if current_index < 0 or current_index >= way_len:
             at_end = True
 
     return current_steps
