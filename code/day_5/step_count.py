@@ -16,12 +16,36 @@ def count_steps(string):
             at_end = True
 
     return current_steps
+
+def count_steps_2(string):
+    way = list(map(int,string.split("\n")))
+    way_len = len(way)
+    current_index = 0
+    current_steps = 0
+    at_end = False
+    # now we start
+    while not at_end:
+        way[current_index] += 1
+        one = -1
+        if way[current_index] >= 4:
+            way[current_index] -= 2
+            one = 1
+        current_index += way[current_index] + one
+        current_steps += 1
+        if current_index < 0 or current_index >= way_len:
+            at_end = True
+
+    return current_steps
+
 test_1 = """0
 3
 0
 1
 -3"""
 print(count_steps(test_1), "should print 5")
+print(count_steps_2(test_1), "should print 10")
+
+
 puzzel_input ="""2
 0
 0
@@ -1040,3 +1064,5 @@ puzzel_input ="""2
 -191
 -866"""
 print(count_steps(puzzel_input))
+print(count_steps_2(puzzel_input))
+
